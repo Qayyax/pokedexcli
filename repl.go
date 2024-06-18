@@ -21,8 +21,21 @@ func startRepl() {
 		command, exists := getCommands()[commandName]
 		if exists {
 			err := command.callback()
+			if err != nil {
+				fmt.Println(err)
+			}
+			continue
+		} else {
+			fmt.Println("Unknown command")
+			continue
 		}
 	}
+}
+
+type cliCommand struct {
+	name        string
+	description string
+	callback    func() error
 }
 
 func cleanInput(text string) []string {
