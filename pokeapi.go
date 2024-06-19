@@ -3,7 +3,7 @@ package main
 import (
 	"encoding/json"
 	"errors"
-	"log"
+	"fmt"
 	"net/http"
 )
 
@@ -19,7 +19,8 @@ type Locations struct {
 func getData(url string) (Locations, error) {
 	response, err := http.Get(url)
 	if err != nil {
-		log.Fatalf("Unable to process request with error: %v", err)
+		errValue := fmt.Sprintf("Unable to process request with error: %v", err)
+		return Locations{}, errors.New(errValue)
 	}
 	defer response.Body.Close()
 
