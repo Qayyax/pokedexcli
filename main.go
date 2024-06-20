@@ -1,5 +1,12 @@
 package main
 
 func main() {
-	startRepl()
+
+	var cfg *conf
+	cfg = &conf{
+		next:     "https://pokeapi.co/api/v2/location",
+		previous: nil,
+	}
+
+	startRepl(cfg)
 }

@@ -8,12 +8,17 @@ import (
 )
 
 type Locations struct {
-	Next     string `json:"next"`
-	Previous any    `json:"previous"`
+	Next     string  `json:"next"`
+	Previous *string `json:"previous"`
 	Results  []struct {
 		Name string `json:"name"`
 		Url  string `json:"url"`
 	} `json:"results"`
+}
+
+type conf struct {
+	next     string
+	previous *string
 }
 
 func getData(url string) (Locations, error) {
