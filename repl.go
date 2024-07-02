@@ -5,9 +5,11 @@ import (
 	"fmt"
 	"os"
 	"strings"
+
+	"github.com/Qayyax/pokedexcli/internal"
 )
 
-func startRepl(cfg *conf) {
+func startRepl(cfg *internal.Conf) {
 	reader := bufio.NewScanner(os.Stdin)
 	for {
 		fmt.Print("Pokedex > ")
@@ -35,7 +37,7 @@ func startRepl(cfg *conf) {
 type cliCommand struct {
 	name        string
 	description string
-	callback    func(cfg *conf) error
+	callback    func(cfg *internal.Conf) error
 }
 
 func cleanInput(text string) []string {

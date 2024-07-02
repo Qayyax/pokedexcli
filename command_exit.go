@@ -1,8 +1,12 @@
 package main
 
-import "os"
+import (
+	"os"
 
-func commandExit(*conf) error {
+	"github.com/Qayyax/pokedexcli/internal"
+)
+
+func commandExit(*internal.Conf) error {
 	os.Exit(0)
 	return nil
 }

@@ -1,4 +1,4 @@
-package main
+package internal
 
 import (
 	"encoding/json"
@@ -16,12 +16,12 @@ type Locations struct {
 	} `json:"results"`
 }
 
-type conf struct {
-	next     string
-	previous *string
+type Conf struct {
+	Next     string
+	Previous *string
 }
 
-func getData(url string) (Locations, error) {
+func GetData(url string) (Locations, error) {
 	response, err := http.Get(url)
 	if err != nil {
 		errValue := fmt.Sprintf("Unable to process request with error: %v", err)
